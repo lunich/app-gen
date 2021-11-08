@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    erubi (1.10.0)
     thor (1.1.0)
     zeitwerk (2.5.1)
 
@@ -8,6 +9,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  erubi (~> 1.10)
   thor
   zeitwerk
 
