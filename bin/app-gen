@@ -7,4 +7,4 @@ $LOAD_PATH.unshift(libx) unless $LOAD_PATH.include?(libx)
 
 require 'app_gen'
 
-AppGen.start(ARGV)
+AppGen::App.start(ARGV)
