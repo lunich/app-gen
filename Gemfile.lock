@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    app-gen (0.1.1)
+    ruby-app-gen (0.1.1)
       activesupport (~> 6.1)
       erubi (~> 1.10)
       thor (~> 1.1)
@@ -30,7 +30,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  app-gen!
+  ruby-app-gen!
 
 BUNDLED WITH
    2.2.18

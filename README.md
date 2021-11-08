@@ -5,7 +5,7 @@ A simple gem to generate a new ruby application skeleton.
 ## Installation
 
 ```
-gem install app-gen
+gem install ruby-app-gen
 ```
 
 ## Simple example

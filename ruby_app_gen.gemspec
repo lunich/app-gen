@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |s|
-  s.name = 'app-gen'
+  s.name = 'ruby-app-gen'
   s.version= '0.1.1'
   s.summary = 'AppGen ruby gem'
   s.description = 'A simple gem to generate a ruby app'
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = 'dima.lunich@gmail.com'
   s.files = Dir['lib/**/*']
   s.license = 'MIT'
-  s.homepage = 'https://github.com/lunich/app-gen'
+  s.homepage = 'https://github.com/lunich/ruby-app-gen'
 
   s.add_runtime_dependency 'activesupport', '~> 6.1'
   s.add_runtime_dependency 'erubi', '~> 1.10'
