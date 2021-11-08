@@ -2,6 +2,10 @@
 
 require 'fileutils'
 
+require 'active_support/core_ext/string'
+require 'erubi'
+require 'thor'
+
 module AppGen
   class App < Thor
     desc 'generate APP_NAME PATH', 'generate a ruby application skeleton'
@@ -14,6 +18,7 @@ module AppGen
 
       create_directories
       create_files
+      puts 'Complete!'
     end
 
     private
@@ -110,7 +115,7 @@ module AppGen
       app_file_path = app_file_path(file)
       if !File.exists?(app_file_path) ||
          options.force? ||
-         ask_yes_no("File #{file} already exists, do you want to override it?")
+         ask_yes_no("#{file} already exists, do you want to override it?")
         src = template_data_to_src(read_template("#{template}.erb"))
         File.open(app_file_path, 'wb') { |file| file << src }
       else

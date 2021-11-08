@@ -6,7 +6,7 @@ ENV['RACK_ENV'] = ENV['APP_ENV']
 require 'rubygems'
 require 'bundler/setup'
 
-Bundler.require('default', ENV['APP_ENV'])
+require 'zeitwerk'
 
 loader = Zeitwerk::Loader.new
 loader.push_dir(__dir__)
