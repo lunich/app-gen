@@ -9,8 +9,8 @@ require 'thor'
 module AppGen
   class App < Thor
     desc 'generate APP_NAME PATH', 'generate a ruby application skeleton'
-    option :force, type: :boolean
-    option :database, type: :boolean, default: true
+    option :force, type: :boolean, desc: 'overrides all the application files is exist'
+    option :database, type: :boolean, default: true, desc: 'generates DB related files'
     def generate(app_name, path)
       @app_name = app_name
       @app_root = File.join(path, app_name)
