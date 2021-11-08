@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+libx = File.expand_path('./lib', __dir__)
+$LOAD_PATH.unshift(libx) unless $LOAD_PATH.include?(libx)
+
+require '<%= app_filename -%>'
+<%- if options.database? -%>
+
+task :environment do
+  # no op
+end
+
+namespace :db do
+  task :load_config do
+    # Make sure the application was initialized - i.e. database was configured
+    <%= app_classname %>::App.instance
+  end
+end
+
+load 'active_record/railties/databases.rake'
+<%- end -%>

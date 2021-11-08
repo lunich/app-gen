@@ -1,0 +1,51 @@
+# frozen_string_literal: true
+
+module <%= app_classname %>
+  class App
+    include Singleton
+
+    attr_reader :env, :root
+
+    def initialize
+      @env = ENV['APP_ENV']
+      @root = File.expand_path('../..', __dir__)
+<%- if options.database? -%>
+      config_database
+<%- end -%>
+    end
+
+    def start
+      IRB.start
+    end
+<%- if options.database? -%>
+
+    private
+
+    def database_path
+      @database_path ||= File.join(root, 'db')
+    end
+
+    def migrations_paths
+      @migrations_paths ||= File.join(database_path, 'migrate')
+    end
+
+    def database_config
+      @database_config ||= begin
+        db_config_path = File.expand_path('config/database.yml', database_path)
+        YAML.load_file(db_config_path)
+      end
+    end
+
+    def config_database
+      ActiveRecord::Tasks::DatabaseTasks.env = env
+      ActiveRecord::Tasks::DatabaseTasks.migrations_paths = migrations_paths
+      ActiveRecord::Tasks::DatabaseTasks.db_dir = database_path
+      ActiveRecord::Tasks::DatabaseTasks.root = root
+
+      ActiveRecord::Base.schema_format = :sql
+      ActiveRecord::Base.configurations = database_config
+      ActiveRecord::Base.establish_connection
+    end
+<%- end -%>
+  end
+end
