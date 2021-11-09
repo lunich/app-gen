@@ -30,15 +30,15 @@ This would generate a new ruby application with DB support in `~/Work/my-app`.
 
 ```
 +- bin
-   +- console
+|  +- console
 +- db
-   +- config
-      +- database.yml
+|  +- config
+|     +- database.yml
 +- Gemfile
 +- lib
-   +- <app-name>
-      +- app.rb
-   +- <app-name>.rb
+|  +- <app-name>
+|  |  +- app.rb
+|  +- <app-name>.rb
 +- Rakefile
 ```
 
